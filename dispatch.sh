@@ -1,14 +1,33 @@
-dnf module disable nginx -y
-dnf module enable nginx:1.24 -y
-dnf install nginx -y
+#  Install GoLang
 
-systemctl enable nginx
-systemctl start nginx
+dnf install golang -y
 
-rm -rf /usr/share/nginx/html/*
+# Add application User
 
-curl -o /tmp/frontend.zip https://roboshop-artifacts.s3.amazonaws.com/frontend-v3.zip
+useradd roboshop
 
-cd /usr/share/nginx/html
-unzip /tmp/frontend.zip
+# Lets setup an app directory.
 
+mkdir /app
+
+# Download the application code to created app directory.
+
+curl -L -o /tmp/dispatch.zip https://roboshop-artifacts.s3.amazonaws.com/dispatch.zip
+cd /app
+unzip /tmp/dispatch.zip
+
+# Lets download the dependencies & build the software.
+
+cd /app
+go mod init dispatch
+go get
+go build
+
+# Load the service.
+
+systemctl daemon-reload
+
+# Start the service.
+
+systemctl enable dispatch
+systemctl start dispatch
