@@ -1,34 +1,47 @@
-dnf module disable nodejs -y
-dnf module enable nodejs:20 -y
 
-# Install NodeJS
+PRINT Disable NODEJS
+dnf module disable nodejs -y
+STAT $?
+
+PRINT Enable NODEJS
+dnf module enable nodejs:20 -y
+STAT $?
+
+PRINT Install NodeJS
 
 dnf install nodejs -y
+STAT $?
 
-# Add application User
+PRINT Add application User
 
 useradd roboshop
+STAT $?
 
-# vLets setup an app directory.
+PRINT Setup an app directory.
 
 mkdir /app
+STAT $?
 
-#vDownload the application code to created app directory.
+PRINT Download the application code to created app directory.
 
 curl -L -o /tmp/cart.zip https://roboshop-artifacts.s3.amazonaws.com/cart-v3.zip
 cd /app
 unzip /tmp/cart.zip
+STAT $?
 
-# Lets download the dependencies.
+PRINT Lets download the dependencies.
 
 cd /app
 npm install
+STAT $?
 
-# Load the service.
+PRINT Load the service.
 
 systemctl daemon-reload
+STAT $?
 
-# Start the service.
+PRINT Start the service.
 
 systemctl enable cart
 systemctl start cart
+STAT $?

@@ -5,8 +5,9 @@ dnf module disable nginx -y
 
 PRINT Disable NGINX
 dnf module enable nginx:1.24 -y
+STAT $?
 
-PRINT Disable NGINX
+PRINT Install NGINX
 dnf install nginx -y
 
 PRINT Start & Enable Nginx service
@@ -22,7 +23,7 @@ PRINT Download the frontend content
 
 curl -o /tmp/frontend.zip https://roboshop-artifacts.s3.amazonaws.com/frontend-v3.zip
 
-PRINT Disable NGINX Extract the frontend content.
+PRINT Extract the frontend content.
 
 cd /usr/share/nginx/html
 unzip /tmp/frontend.zip

@@ -1,22 +1,28 @@
 
-# Install redis, By default redis *** is available, We would like to enable 7 version and install list.
 
+PRINT  Disable redis
 dnf module disable redis -y
-dnf module enable redis:7 -y
+STAT $?
 
-# Install Redis
+PRINT  Enable  redis
+dnf module enable redis:7 -y
+STAT $?
+
+PRINT  Install redis
 
 dnf install redis -y
+STAT $?
 
-# Usually Redis opens the port only to localhost(127.0.0.1), meaning this service can be accessed by the application that is hosted on this server only. However, we need to access this service to be accessed by another server, So we need to change the config accordingly.
 
-# Update listen address from 127.0.0.1 to 0.0.0.0 in /etc/redis/redis.conf
+PRINT  Update Redis Configuration
 
-# Update protected-mode from yes to no in /etc/redis/redis.conf
+#sed -i 's/127.0.0.0/0.0.0.0' /etc/redis/redis.conf
+sed -i -e '/^bind/ s/127.0.0.1/0.0.0.0/' -e '/protected-mode/ c protected-mode no' /etc/redis/redis.conf
 
-# TIP You can edit file by using vim /etc/redis/redis.conf
+STAT $?
 
-# Start & Enable Redis Service
+PRINT Start & Enable Redis Service
 
 systemctl enable redis
 systemctl start redis
+STAT $?
