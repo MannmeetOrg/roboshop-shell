@@ -1,51 +1,61 @@
-dnf install maven -y
 
-Add application User
+PRINT Install Maven and JAVA
+dnf install maven -y
+STAT $?
+
+PRINT Add application User
 
 useradd roboshop
+STAT $?
 
-Lets setup an app directory.
-
+PRINT Lets setup an app directory.
 mkdir /app
+STAT $?
 
-Download the application code to created app directory.
+PRINT Download the application code to created app directory.
 
 curl -L -o /tmp/shipping.zip https://roboshop-artifacts.s3.amazonaws.com/shipping-v3.zip
 cd /app
 unzip /tmp/shipping.zip
+STAT $?
 
-Lets download the dependencies & build the application
+PRINT Download the dependencies & build the application
 
 cd /app
 mvn clean package
 mv target/shipping-1.0.jar shipping.jar
+STAT $?
 
-Load the service.
+PRINT Load the service.
 
 systemctl daemon-reload
+STAT $?
 
-Start the service.
+PRINT Start and Enable Shipping service.
 
 systemctl enable shipping
 systemctl start shipping
+STAT $?
 
-
-To have it installed we can use
+PRINT To have Schema installed we can use
 
 dnf install mysql -y
+STAT $?
 
-Load Schema, Schema in database is the structure to it like what tables to be created and their necessary application layouts.
+PRINT Load Schema
 
 mysql -h <MYSQL-SERVER-IPADDRESS> -uroot -pRoboShop@1 < /app/db/schema.sql
+STAT $?
 
-Load Master Data, This includes the data of all the countries and their cities with distance to those cities.
+PRINT Load Master Data
 
 mysql -h <MYSQL-SERVER-IPADDRESS> -uroot -pRoboShop@1 < /app/db/master-data.sql
+STAT $?
 
-Create app user, MySQL expects a password authentication, Hence we need to create the user in mysql database for shipping app to connect.
-
+PRINT Create app user
 mysql -h <MYSQL-SERVER-IPADDRESS> -uroot -pRoboShop@1 < /app/db/app-user.sql
+STAT $?
 
-This service needs a restart because it is dependent on schema, After loading schema only it will work as expected, Hence we are restarting this service. This
-
+PRINT Restarting Shipping Service
 systemctl restart shipping
+STAT $?

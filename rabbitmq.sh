@@ -1,14 +1,18 @@
-Install RabbitMQ
+PRINT Install RabbitMQ
 
 dnf install rabbitmq-server -y
+STAT $?
 
-Start RabbitMQ Service
+PRINT Start and Enable RabbitMQ Service
 
 systemctl enable rabbitmq-server
 systemctl start rabbitmq-server
+STAT $?
 
-RabbitMQ comes with a default username / password as guest/guest. But this user cannot be used to connect. Hence, we need to create one user for the application.
+PRINT Create one user for the RabbitMQ application and set permission
 
 rabbitmqctl add_user roboshop roboshop123
 rabbitmqctl set_permissions -p / roboshop ".*" ".*" ".*"
+
+STAT $?
 
