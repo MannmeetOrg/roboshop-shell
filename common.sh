@@ -78,9 +78,12 @@ Prereq_App
     npm install &>>$LOG_FILE
 
   STAT $?
+
+Systemd_setup
+Schema_setup
 }
 
-System_setup () {
+Systemd_setup () {
   PRINT copy the configuration file to the path
     cp catalogue.service /etc/systemd/system/catalogue.service &>>$LOG_FILE
   STAT $?
@@ -93,3 +96,20 @@ System_setup () {
   STAT $?
 }
 
+Schema_setup () {
+
+  PRINT Copy the configuration file.
+    cp mongo.repo /etc/yum.repos.d/mongo.repo &>>$LOG_FILE
+  STAT $?
+
+  PRINT Install MongoDB Client
+
+  dnf install mongodb-mongosh -y &>>$LOG_FILE
+
+  STAT $?
+
+  PRINT Load Master Data
+  mongosh --host 35.175.198.42 </app/db/master-data.js &>>$LOG_FILE
+
+  STAT $?
+}
