@@ -1,3 +1,5 @@
+source common.sh
+
 PRINT Disable NodeJS
 
 dnf module disable nodejs -y
