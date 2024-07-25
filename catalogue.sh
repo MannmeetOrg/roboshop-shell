@@ -16,7 +16,7 @@ STAT $?
 
 Prereq_App
 
-PRINT Download the dependencies
+PRINT Download the dependencies.
 
 cd $(app_path) &>>$LOG_FILE
 npm install &>>$LOG_FILE
