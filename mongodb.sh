@@ -1,11 +1,12 @@
+
 PRINT Install MongoDB
-dnf install mongodb-org -y
+dnf install mongodb-org -y &>>$LOG_FILE
 STAT $?
 
-PRINT Start & enable MongoDB Service
+PRINT Start and enable MongoDB Service
 
-systemctl enable mongod
-systemctl start mongod
+systemctl enable mongod &>>$LOG_FILE
+systemctl start mongod &>>$LOG_FILE
 STAT $?
 
 PRINT Update MongoDB config file
@@ -14,12 +15,12 @@ STAT $?
 
 PRINT Restart the service to make the changes effected.
 
-systemctl restart mongod
+systemctl restart mongod &>>$LOG_FILE
 STAT $?
 
 PRINT MONGODB CLIENT install and Load Master Data
 
-dnf install mongodb-mongosh -y
+dnf install mongodb-mongosh -y &>>$LOG_FILE
 
-mongosh --host MONGODB-SERVER-IPADDRESS </app/db/master-data.js
+mongosh --host MONGODB-SERVER-IPADDRESS </app/db/master-data.js &>>$LOG_FILE
 STAT $?
