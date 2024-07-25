@@ -22,7 +22,7 @@ PRINT Add application User
 STAT $?
 
 PRINT Setup an app directory
-dir="/app"
+
 
   if [ -d "$dir" ]; then
     exit $?
