@@ -23,30 +23,59 @@ STAT() {
 
 Prereq_App () {
 
-PRINT Add application User
+  PRINT Add application User
 
     id roboshop &>>$LOG_FILE
     if [ $? -ne 0 ]; then
       useradd roboshop &>>$LOG_FILE
     fi
-STAT $?
+  STAT $?
 
-PRINT Remove old contect
+  PRINT Remove old contect
 
-  rm -rf $(app_path) &>>$LOG_FILE
+    rm -rf $(app_path) &>>$LOG_FILE
+  STAT $?
 
-PRINT Setup an app directory
+  PRINT Setup an app directory
 
-   mkdir $(app_path) &>>$LOG_FILE
+    mkdir $(app_path) &>>$LOG_FILE
 
-STAT $?
+  STAT $?
 
-PRINT Download the application code to created app directory
+  PRINT Download the application code to created app directory
 
-  curl -o /tmp/catalogue.zip https://roboshop-artifacts.s3.amazonaws.com/catalogue-v3.zip &>>$LOG_FILE
-  cd $(app_path) &>>$LOG_FILE
-  unzip /tmp/catalogue.zip &>>$LOG_FILE
+    curl -o /tmp/catalogue.zip https://roboshop-artifacts.s3.amazonaws.com/catalogue-v3.zip &>>$LOG_FILE
+    cd $(app_path) &>>$LOG_FILE
+    unzip /tmp/catalogue.zip &>>$LOG_FILE
 
-STAT $?
+  STAT $?
 
+}
+
+NodeJS () {
+
+  PRINT Disable NodeJS
+
+    dnf module disable nodejs -y &>>$LOG_FILE
+
+  PRINT Enable NodeJS
+
+    dnf module enable nodejs:20 -y &>>$LOG_FILE
+
+  STAT $?
+
+  PRINT Install NodeJS
+
+    dnf install nodejs -y &>>$LOG_FILE
+
+  STAT $?
+
+Prereq_App
+
+  PRINT Download the NodeJS dependencies
+
+    cd $(app_path) &>>$LOG_FILE
+    npm install &>>$LOG_FILE
+
+  STAT $?
 }
