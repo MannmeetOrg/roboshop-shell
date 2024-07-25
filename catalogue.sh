@@ -14,7 +14,7 @@ PRINT Install NodeJS
 dnf install nodejs -y &>>$LOG_FILE
 STAT $?
 
-
+Prereq_App
 
 PRINT Download the dependencies
 
