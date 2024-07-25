@@ -30,7 +30,7 @@ cd /app
 unzip /tmp/catalogue.zip
 STAT $?
 
-PRINT Lets download the dependencies
+PRINT Download the dependencies
 
 cd /app
 npm install
