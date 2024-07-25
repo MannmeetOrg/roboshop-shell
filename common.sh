@@ -33,19 +33,20 @@ Prereq_App () {
 
   PRINT Remove old contect
 
-    rm -rf $(app_path) &>>$LOG_FILE
+    rm -rf ${app_path} &>>$LOG_FILE
+
   STAT $?
 
   PRINT Setup an app directory
 
-    mkdir $(app_path) &>>$LOG_FILE
+    mkdir ${app_path}  &>>$LOG_FILE
 
   STAT $?
 
   PRINT Download the application code to created app directory
 
     curl -o /tmp/catalogue.zip https://roboshop-artifacts.s3.amazonaws.com/catalogue-v3.zip &>>$LOG_FILE
-    cd $(app_path) &>>$LOG_FILE
+    cd ${app_path} &>>$LOG_FILE
     unzip /tmp/catalogue.zip &>>$LOG_FILE
 
   STAT $?
