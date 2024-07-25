@@ -35,6 +35,7 @@ PRINT Download the application code to created app directory
 curl -o /tmp/catalogue.zip https://roboshop-artifacts.s3.amazonaws.com/catalogue-v3.zip &>>$LOG_FILE
 cd /app &>>$LOG_FILE
 unzip /tmp/catalogue.zip &>>$LOG_FILE
+
 STAT $?
 
 PRINT Download the dependencies
