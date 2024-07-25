@@ -33,7 +33,7 @@ Prereq_App () {
 
   STAT $?
 
-  PRINT Remove old contect
+  PRINT Remove old content.
 
     rm -rf ${app_path} &>>$LOG_FILE
 
