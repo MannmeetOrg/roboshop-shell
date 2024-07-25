@@ -77,7 +77,7 @@ Prereq_App
 
   PRINT Download the NodeJS dependencies
 
-    cd $(app_path) &>>$LOG_FILE
+    cd ${app_path} &>>$LOG_FILE
     npm install &>>$LOG_FILE
 
   STAT $?
