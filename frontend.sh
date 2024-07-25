@@ -1,4 +1,4 @@
-source common
+source common.sh
 
 PRINT Disable NGINX
 dnf module disable nginx -y
