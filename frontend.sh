@@ -11,7 +11,7 @@ PRINT Install NGINX
 dnf install nginx -y &>>$LOG_FILE
 STAT $?
 
-PRINT Start & Enable Nginx service
+PRINT Start & "Enable" Nginx service
 
 systemctl enable nginx &>>$LOG_FILE
 systemctl start nginx &>>$LOG_FILE
