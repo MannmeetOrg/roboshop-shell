@@ -102,7 +102,7 @@ Systemd_setup () {
 Schema_setup () {
 
   PRINT Copy the configuration file.
-    cp ${code_dir}/mongo.repo /etc/yum.repos.d/mongo.repo &>>$LOG_FILE
+    cp ${code_dir}/mongodb.repo /etc/yum.repos.d/mongo.repo &>>$LOG_FILE
   STAT $?
 
   PRINT Install MongoDB Client.
