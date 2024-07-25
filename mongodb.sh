@@ -1,7 +1,9 @@
 source common.sh
 
 PRINT Install MongoDB
+
 dnf install mongodb-org -y &>>$LOG_FILE
+
 STAT $?
 
 PRINT Start and Enable MongoDB Service
