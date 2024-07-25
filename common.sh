@@ -40,7 +40,7 @@ Prereq_App () {
 
   STAT $?
 
-  PRINT Setup an app directory
+  PRINT Setup an app directory.
 
     mkdir ${app_path}  &>>$LOG_FILE
 
