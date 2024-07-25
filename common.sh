@@ -2,6 +2,7 @@
 LOG_FILE=/tmp/roboshop.log
 rm -f $LOG_FILE
 dir="/app"
+code_dir=$(pwd)
 
 PRINT () {
     echo &>>$LOG_FILE
@@ -88,7 +89,7 @@ Schema_setup
 
 Systemd_setup () {
   PRINT copy the configuration file to the path
-    cp catalogue.service /etc/systemd/system/catalogue.service &>>$LOG_FILE
+    cp ${code_dir}/catalogue.service /etc/systemd/system/catalogue.service &>>$LOG_FILE
   STAT $?
 
   PRINT Start Service
