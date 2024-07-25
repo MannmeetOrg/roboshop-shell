@@ -105,7 +105,7 @@ Schema_setup () {
     cp ${code_dir}/mongo.repo /etc/yum.repos.d/mongo.repo &>>$LOG_FILE
   STAT $?
 
-  PRINT Install MongoDB Client
+  PRINT Install MongoDB Client.
 
   dnf install mongodb-mongosh -y &>>$LOG_FILE
 
