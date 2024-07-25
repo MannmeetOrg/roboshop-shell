@@ -22,8 +22,13 @@ PRINT Add application User
 STAT $?
 
 PRINT Setup an app directory
+dir="/app"
 
-mkdir /app &>>$LOG_FILE
+  if [ -d "$dir" ]; then
+    exit $?
+  else
+    mkdir /app &>>$LOG_FILE
+  fi
 STAT $?
 
 PRINT Download the application code to created app directory
