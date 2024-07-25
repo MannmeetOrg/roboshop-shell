@@ -18,7 +18,7 @@ PRINT Add application User
 useradd roboshop
 STAT $?
 
-PRINT Lets setup an app directory.
+PRINT Lets setup an app directory
 
 mkdir /app
 STAT $?
