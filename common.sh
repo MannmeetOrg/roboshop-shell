@@ -84,7 +84,6 @@ Prereq_App
 
 Systemd_setup
 Schema_setup
-
 }
 
 Systemd_setup () {
@@ -98,7 +97,6 @@ Systemd_setup () {
     systemctl enable catalogue &>>$LOG_FILE
     systemctl start catalogue &>>$LOG_FILE
   STAT $?
-
 }
 
 Schema_setup () {
