@@ -28,6 +28,7 @@ PRINT Setup an app directory
   else
     mkdir /app &>>$LOG_FILE
   fi
+
 STAT $?
 
 PRINT Download the application code to created app directory
