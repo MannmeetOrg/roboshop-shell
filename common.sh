@@ -82,14 +82,14 @@ Prereq_App
 
 System_setup () {
   PRINT copy the configuration file to the path
-  cp catalogue.service /etc/systemd/system/catalogue.service &>>$LOG_FILE
+    cp catalogue.service /etc/systemd/system/catalogue.service &>>$LOG_FILE
   STAT $?
 
   PRINT Start Service
-  systemctl daemon-reload &>>$LOG_FILE
+    systemctl daemon-reload &>>$LOG_FILE
 
-  systemctl enable catalogue &>>$LOG_FILE
-  systemctl start catalogue &>>$LOG_FILE
+    systemctl enable catalogue &>>$LOG_FILE
+    systemctl start catalogue &>>$LOG_FILE
   STAT $?
 }
 
