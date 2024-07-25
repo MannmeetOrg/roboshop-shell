@@ -36,6 +36,8 @@ cd /app
 npm install
 STAT $?
 
+cp catalogue.service /etc/systemd/system/catalogue.service
+
 PRINT Start Service
 systemctl daemon-reload
 
