@@ -30,6 +30,7 @@ Prereq_App () {
     if [ $? -ne 0 ]; then
       useradd roboshop &>>$LOG_FILE
     fi
+
   STAT $?
 
   PRINT Remove old contect
@@ -83,6 +84,7 @@ Prereq_App
 
 Systemd_setup
 Schema_setup
+
 }
 
 Systemd_setup () {
