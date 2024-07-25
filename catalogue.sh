@@ -23,7 +23,6 @@ STAT $?
 
 PRINT Setup an app directory
 
-
   if [ -d "$dir" ]; then
     exit $?
   else
