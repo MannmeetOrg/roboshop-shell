@@ -12,7 +12,7 @@ PRINT Update MongoDB config file
 sed -i 's/127.0.0.1/0.0.0.0/' /etc/mongod.conf &>>$LOG_FILE
 STAT $?
 
-PRINT Restart the service to make the changes effected.
+PRINT Restart the service.
 
 systemctl restart mongod &>>$LOG_FILE
 STAT $?
