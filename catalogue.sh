@@ -23,7 +23,7 @@ PRINT Setup an app directory
 mkdir /app
 STAT $?
 
-PRINT Download the application code to created app directory.
+PRINT Download the application code to created app directory
 
 curl -o /tmp/catalogue.zip https://roboshop-artifacts.s3.amazonaws.com/catalogue-v3.zip
 cd /app
