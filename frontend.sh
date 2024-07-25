@@ -3,7 +3,7 @@ source common.sh
 PRINT Disable NGINX
 dnf module disable nginx -y &>>$LOG_FILE
 
-PRINT Enable NGINX
+PRINT Enable NGINX 1.24
 dnf module enable nginx:1.24 -y &>>$LOG_FILE
 STAT $?
 
