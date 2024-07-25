@@ -1,4 +1,3 @@
-
 PRINT Install MongoDB
 dnf install mongodb-org -y &>>$LOG_FILE
 STAT $?
