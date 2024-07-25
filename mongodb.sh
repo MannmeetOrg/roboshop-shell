@@ -2,7 +2,7 @@ PRINT Install MongoDB
 dnf install mongodb-org -y &>>$LOG_FILE
 STAT $?
 
-PRINT Start and enable MongoDB Service
+PRINT Start and Enable MongoDB Service
 
 systemctl enable mongod &>>$LOG_FILE
 systemctl start mongod &>>$LOG_FILE
