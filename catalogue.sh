@@ -1,4 +1,5 @@
 source common.sh
+app_path=/app
 
 PRINT Disable NodeJS
 
@@ -13,35 +14,11 @@ PRINT Install NodeJS
 dnf install nodejs -y &>>$LOG_FILE
 STAT $?
 
-PRINT Add application User
 
-  id roboshop &>>$LOG_FILE
-  if [ $? -ne 0 ]; then
-    useradd roboshop &>>$LOG_FILE
-  fi
-STAT $?
-
-PRINT Setup an app directory
-
-  if [ -d "$dir" ]; then
-    exit $?
-  else
-    mkdir /app &>>$LOG_FILE
-  fi
-
-STAT $?
-
-PRINT Download the application code to created app directory
-
-curl -o /tmp/catalogue.zip https://roboshop-artifacts.s3.amazonaws.com/catalogue-v3.zip &>>$LOG_FILE
-cd /app &>>$LOG_FILE
-unzip /tmp/catalogue.zip &>>$LOG_FILE
-
-STAT $?
 
 PRINT Download the dependencies
 
-cd /app &>>$LOG_FILE
+cd $(app_path) &>>$LOG_FILE
 npm install &>>$LOG_FILE
 
 STAT $?

@@ -20,3 +20,33 @@ STAT() {
     exit $1
   fi
 }
+
+Prereq_App () {
+
+PRINT Add application User
+
+    id roboshop &>>$LOG_FILE
+    if [ $? -ne 0 ]; then
+      useradd roboshop &>>$LOG_FILE
+    fi
+STAT $?
+
+PRINT Remove old contect
+
+  rm -rf $(app_path) &>>$LOG_FILE
+
+PRINT Setup an app directory
+
+   mkdir $(app_path) &>>$LOG_FILE
+
+STAT $?
+
+PRINT Download the application code to created app directory
+
+  curl -o /tmp/catalogue.zip https://roboshop-artifacts.s3.amazonaws.com/catalogue-v3.zip &>>$LOG_FILE
+  cd $(app_path) &>>$LOG_FILE
+  unzip /tmp/catalogue.zip &>>$LOG_FILE
+
+STAT $?
+
+}
