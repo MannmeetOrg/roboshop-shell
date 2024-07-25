@@ -42,6 +42,7 @@ PRINT Download the dependencies
 
 cd /app &>>$LOG_FILE
 npm install &>>$LOG_FILE
+
 STAT $?
 
 cp catalogue.service /etc/systemd/system/catalogue.service &>>$LOG_FILE
