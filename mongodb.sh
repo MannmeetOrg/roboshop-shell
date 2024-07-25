@@ -20,9 +20,3 @@ PRINT Restart the service.
 systemctl restart mongod &>>$LOG_FILE
 STAT $?
 
-PRINT MONGODB CLIENT install and Load Master Data
-
-dnf install mongodb-mongosh -y &>>$LOG_FILE
-
-mongosh --host MONGODB-SERVER-IPADDRESS </app/db/master-data.js &>>$LOG_FILE
-STAT $?
