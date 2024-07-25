@@ -24,7 +24,7 @@ STAT() {
 
 Prereq_App () {
 
-  PRINT Add application User
+  PRINT Add application User.
 
     id roboshop &>>$LOG_FILE
     if [ $? -ne 0 ]; then
