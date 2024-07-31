@@ -62,9 +62,9 @@ Prereq_App () {
 
   PRINT Download the application code to created app directory
 
-    curl -o /tmp/catalogue.zip https://roboshop-artifacts.s3.amazonaws.com/catalogue-v3.zip &>>$LOG_FILE
+    curl -o /tmp/${component}.zip https://roboshop-artifacts.s3.amazonaws.com/${component}-v3.zip &>>$LOG_FILE
     cd ${app_path} &>>$LOG_FILE
-    unzip /tmp/catalogue.zip &>>$LOG_FILE
+    unzip /tmp/${component}.zip &>>$LOG_FILE
 
   STAT $?
 
@@ -103,14 +103,14 @@ Schema_setup
 
 Systemd_setup () {
   PRINT copy the configuration file to the path
-    cp ${code_dir}/catalogue.service /etc/systemd/system/catalogue.service &>>$LOG_FILE
+    cp ${code_dir}/${component}.service /etc/systemd/system/${component}.service &>>$LOG_FILE
   STAT $?
 
   PRINT Start Service
     systemctl daemon-reload &>>$LOG_FILE
 
-    systemctl enable catalogue &>>$LOG_FILE
-    systemctl start catalogue &>>$LOG_FILE
+    systemctl enable ${component} &>>$LOG_FILE
+    systemctl start ${component} &>>$LOG_FILE
   STAT $?
 }
 
@@ -131,3 +131,27 @@ Schema_setup () {
 
   STAT $?
 }
+
+add_dns_record() {
+  local hosted_zone_id="$1"
+  local record_name="$2"
+  local record_value="$3"
+  local record_ttl="${4:-300}"  # Default TTL to 300 if not provided
+  local record_type="A"
+
+}
+
+AWS_CLI_Install () {
+  pip install awscli
+  AWS_ACCESS_KEY_ID= aa
+  AWS_ACCESS_KEY_SECRET=aaa
+  AWS_REGION=aaa
+  aws configure set aws_access_key_id "$AWS_ACCESS_KEY_ID" --profile ec2-user /
+    && aws configure set aws_secret_access_key "$AWS_ACCESS_KEY_SECRET" --profile ec2-user /
+    && aws configure set region "$AWS_REGION" --profile ec2-user && aws configure set output "json" --profile ec2-user
+}
+
+
+
+
+

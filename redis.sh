@@ -1,4 +1,5 @@
 
+component=redis
 sname=redis
 
 PRINT  Disable redis
@@ -14,7 +15,6 @@ PRINT  Install redis
 dnf install redis -y
 STAT $?
 
-
 PRINT  Update Redis Configuration
 
 #sed -i 's/127.0.0.0/0.0.0.0' /etc/redis/redis.conf
@@ -22,11 +22,7 @@ sed -i -e '/^bind/ s/127.0.0.1/0.0.0.0/' -e '/protected-mode/ c protected-mode n
 
 STAT $?
 
-PRINT Start & Enable Redis Service
-
-systemctl enable redis
-systemctl start redis
-STAT $?
+Systemd_setup
 
 
 execute_as_root
