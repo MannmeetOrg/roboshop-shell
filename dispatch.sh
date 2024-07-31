@@ -36,3 +36,6 @@ PRINT Start and enable Dispatch service.
 systemctl enable dispatch
 systemctl start dispatch
 STAT $?
+
+
+execute_as_root

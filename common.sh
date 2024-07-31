@@ -4,6 +4,7 @@ rm -f $LOG_FILE
 code_dir=$(pwd)
 
 execute_as_root() {
+    PRINT SET Server Name
     sudo -i <<EOF
     echo "Switched to root user"
     sudo set-prompt ${sname}
@@ -15,11 +16,7 @@ execute_as_root() {
     exit
 EOF
 }
-SetProfile () {
-  PRINT SET Server Name
-  # Execute commands as root
-  execute_as_root
-}
+
 
 PRINT () {
     echo &>>$LOG_FILE

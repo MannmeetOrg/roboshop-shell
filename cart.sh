@@ -1,4 +1,6 @@
 
+sname=cart
+
 PRINT Disable NODEJS
 dnf module disable nodejs -y
 STAT $?
@@ -45,3 +47,6 @@ PRINT Start the service.
 systemctl enable cart
 systemctl start cart
 STAT $?
+
+
+execute_as_root

@@ -1,4 +1,6 @@
 
+sname=shipping
+
 PRINT Install Maven and JAVA
 dnf install maven -y
 STAT $?
@@ -59,3 +61,6 @@ STAT $?
 PRINT Restarting Shipping Service
 systemctl restart shipping
 STAT $?
+
+
+execute_as_root

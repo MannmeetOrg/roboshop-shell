@@ -1,3 +1,6 @@
+
+sname=payment
+
 PRINT Install Python 3
 
 dnf install python3 gcc python3-devel -y
@@ -37,3 +40,6 @@ PRINT Start and enable Payment service.
 systemctl enable payment
 systemctl start payment
 STAT $?
+
+
+execute_as_root

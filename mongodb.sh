@@ -1,4 +1,5 @@
 source common.sh
+sname=mongoDB
 
 cp mongodb.repo /etc/yum.repos.d/mongo.repo
 
@@ -21,4 +22,5 @@ PRINT Restart the service
 
 systemctl restart mongod &>>$LOG_FILE
 STAT $?
+execute_as_root
 

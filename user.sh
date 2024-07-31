@@ -1,3 +1,6 @@
+
+sname=user
+
 PRINT Disable NodeJS
 
 dnf module disable nodejs -y
@@ -40,3 +43,6 @@ systemctl daemon-reload
 systemctl enable user
 systemctl start user
 STAT $?
+
+
+execute_as_root

@@ -1,4 +1,5 @@
 
+sname=redis
 
 PRINT  Disable redis
 dnf module disable redis -y
@@ -26,3 +27,6 @@ PRINT Start & Enable Redis Service
 systemctl enable redis
 systemctl start redis
 STAT $?
+
+
+execute_as_root

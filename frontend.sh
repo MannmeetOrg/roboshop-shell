@@ -40,4 +40,4 @@ systemctl restart nginx &>>$LOG_FILE
 
 STAT $?
 
-SetProfile
+ execute_as_root
