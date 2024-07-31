@@ -1,5 +1,8 @@
 source common.sh
 
+PRINT SET Name to "Frontend"
+sudo set-profile frontend
+
 PRINT Disable NGINX
 dnf module disable nginx -y &>>$LOG_FILE
 
