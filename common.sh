@@ -9,7 +9,7 @@ execute_as_root() {
     sudo set-prompt ${sname}
     # Switch back to ec2-user and change directory
       sudo -u ec2-user bash <<'EOF'
-      cd /home/ec2-user/roboshop
+      cd /home/ec2-user/roboshop-shell
       echo "Switched back to ec2-user and changed directory to /home/ec2-user/roboshop-shell/"
       exec bash
       EOF
