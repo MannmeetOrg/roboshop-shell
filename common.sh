@@ -3,12 +3,30 @@ LOG_FILE=/tmp/roboshop.log
 rm -f $LOG_FILE
 code_dir=$(pwd)
 
-#SetProfile () {
-#  PRINT SET Server Name
-#  #echo ${sname}
-#  sudo set-prompt ${sname}
-#  su - ec2-user -c 'cd /home/ec2-user/roboshop/ && bash'
-#}
+execute_as_root() {
+    sudo -i <<EOF
+    echo "Switched to root user"
+    set-prompt ${sname}
+    # Switch back to ec2-user and change directory
+      sudo -u ec2-user bash <<'EOF'
+      cd /home/ec2-user/roboshop
+      echo "Switched back to ec2-user and changed directory to /home/ec2-user/roboshop/"
+      exec bash
+      EOF
+    exit
+EOF
+}
+SetProfile () {
+  PRINT SET Server Name
+  execute_as_root
+
+  # Execute commands as root
+  execute_as_root
+
+
+
+
+}
 
 PRINT () {
     echo &>>$LOG_FILE
