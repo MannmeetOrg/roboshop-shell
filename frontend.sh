@@ -1,5 +1,7 @@
 source common.sh
-Sname ="Frontend"
+sname "Frontend"
+
+SetProfile
 
 PRINT Disable NGINX
 dnf module disable nginx -y &>>$LOG_FILE
