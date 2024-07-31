@@ -7,6 +7,8 @@ SetProfile () {
   PRINT SET Server Name
   #echo ${sname}
   sudo set-prompt ${sname}
+  sudo -u ec2-user /bin/bash
+  cd /home/ec2-user/roboshop-shell
 }
 
 PRINT () {
