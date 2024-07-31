@@ -3,6 +3,9 @@ LOG_FILE=/tmp/roboshop.log
 rm -f $LOG_FILE
 code_dir=$(pwd)
 
+PRINT SET Server Name
+sudo set-profile ${Sname}
+
 PRINT () {
     echo &>>$LOG_FILE
     echo &>>$LOG_FILE
