@@ -3,12 +3,12 @@ LOG_FILE=/tmp/roboshop.log
 rm -f $LOG_FILE
 code_dir=$(pwd)
 
-SetProfile () {
-  PRINT SET Server Name
-  #echo ${sname}
-  sudo set-prompt ${sname}
-  su - ec2-user -c 'cd /home/ec2-user/roboshop/ && bash'
-}
+#SetProfile () {
+#  PRINT SET Server Name
+#  #echo ${sname}
+#  sudo set-prompt ${sname}
+#  su - ec2-user -c 'cd /home/ec2-user/roboshop/ && bash'
+#}
 
 PRINT () {
     echo &>>$LOG_FILE
