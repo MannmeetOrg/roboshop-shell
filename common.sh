@@ -6,7 +6,7 @@ code_dir=$(pwd)
 execute_as_root() {
     sudo -i <<EOF
     echo "Switched to root user"
-    set-prompt ${sname}
+    sudo set-prompt ${sname}
     # Switch back to ec2-user and change directory
       sudo -u ec2-user bash <<'EOF'
       cd /home/ec2-user/roboshop
