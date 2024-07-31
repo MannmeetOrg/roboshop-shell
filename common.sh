@@ -6,7 +6,7 @@ code_dir=$(pwd)
 SetProfile () {
   PRINT SET Server Name
   #echo ${sname}
-  sudo set-prompt==${sname}
+  sudo set-prompt ${sname}
 }
 
 PRINT () {

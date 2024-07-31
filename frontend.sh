@@ -1,5 +1,5 @@
 source common.sh
-sname Frontend
+sname=Frontend
 
 SetProfile
 
