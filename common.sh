@@ -17,14 +17,8 @@ EOF
 }
 SetProfile () {
   PRINT SET Server Name
-  execute_as_root
-
   # Execute commands as root
   execute_as_root
-
-
-
-
 }
 
 PRINT () {
