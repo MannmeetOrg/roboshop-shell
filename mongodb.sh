@@ -1,5 +1,6 @@
 source common.sh
-sname=mongoDB
+sname=db
+component=mongodb
 
 cp mongodb.repo /etc/yum.repos.d/mongo.repo
 

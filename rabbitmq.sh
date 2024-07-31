@@ -1,4 +1,5 @@
-
+source common.sh
+component=rabbitmq
 sname=rabbitmq
 
 PRINT Install RabbitMQ
@@ -6,11 +7,7 @@ PRINT Install RabbitMQ
 dnf install rabbitmq-server -y
 STAT $?
 
-PRINT Start and Enable RabbitMQ Service
-
-systemctl enable rabbitmq-server
-systemctl start rabbitmq-server
-STAT $?
+System_setup
 
 PRINT Create one user for the RabbitMQ application and set permission
 

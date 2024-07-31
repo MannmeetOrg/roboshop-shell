@@ -75,6 +75,7 @@ NodeJS () {
   PRINT Disable NodeJS
 
     dnf module disable nodejs -y &>>$LOG_FILE
+  STAT $?
 
   PRINT Enable NodeJS
 
@@ -101,6 +102,20 @@ Systemd_setup
 Schema_setup
 }
 
+Java () {
+  PRINT Install Maven and JAVA
+        dnf install maven -y &>>$LOG_FILE
+  STAT $?
+  Prereq_App
+    PRINT download the dependencies
+        cd /app &>>$LOG_FILE
+        mvn clean package &>>$LOG_FILE
+        mv target/shipping-1.0.jar shipping.jar &>>$LOG_FILE
+    STAT $?
+
+  Systemd_setup
+  Schema_setup
+}
 Systemd_setup () {
   PRINT copy the configuration file to the path
     cp ${code_dir}/${component}.service /etc/systemd/system/${component}.service &>>$LOG_FILE
@@ -116,20 +131,34 @@ Systemd_setup () {
 
 Schema_setup () {
 
-  PRINT Copy the configuration file
-    cp ${code_dir}/mongodb.repo /etc/yum.repos.d/mongo.repo &>>$LOG_FILE
-  STAT $?
+    if [ ${component} = "mysql"]; then
+        PRINT Install MySQL Client
+            dnf install mysql -y &>>$LOG_FILE
+        STAT $?
 
-  PRINT Install MongoDB Client
+      for file in schema app-user master-data; do
+        PRINT Load ${file}.sql
+          mysql -h <MYSQL-SERVER-IPADDRESS> -uroot -pRoboShop@1 < /app/db/${file}.sql &>>$LOG_FILE
+        STAT $?
+        done
+    fi
 
-  dnf install mongodb-mongosh -y &>>$LOG_FILE
+    if [ ${component} = "mongodb"]; then
+        PRINT Copy the configuration file
+          cp ${code_dir}/mongodb.repo /etc/yum.repos.d/mongo.repo &>>$LOG_FILE
+        STAT $?
 
-  STAT $?
+        PRINT Install MongoDB Client
 
-  PRINT Load Master Data
-  mongosh --host 35.175.198.42 </app/db/master-data.js &>>$LOG_FILE
+        dnf install mongodb-mongosh -y &>>$LOG_FILE
 
-  STAT $?
+        STAT $?
+
+        PRINT Load Master Data
+        mongosh --host 35.175.198.42 </app/db/master-data.js &>>$LOG_FILE
+
+        STAT $?
+    fi
 }
 
 add_dns_record() {
