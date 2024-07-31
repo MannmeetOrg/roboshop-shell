@@ -1,8 +1,6 @@
 source common.sh
 sname=Frontend
 
-SetProfile
-
 PRINT Disable NGINX
 dnf module disable nginx -y &>>$LOG_FILE
 
@@ -41,3 +39,5 @@ PRINT Restart Nginx Service to load the changes of the configuration.
 systemctl restart nginx &>>$LOG_FILE
 
 STAT $?
+
+SetProfile
