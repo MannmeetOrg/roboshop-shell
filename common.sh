@@ -161,24 +161,24 @@ Schema_setup () {
     fi
 }
 
-add_dns_record() {
-  local hosted_zone_id="$1"
-  local record_name="$2"
-  local record_value="$3"
-  local record_ttl="${4:-300}"  # Default TTL to 300 if not provided
-  local record_type="A"
-
-}
-
-AWS_CLI_Install () {
-  pip install awscli
-  AWS_ACCESS_KEY_ID= aa
-  AWS_ACCESS_KEY_SECRET=aaa
-  AWS_REGION=aaa
-  aws configure set aws_access_key_id "$AWS_ACCESS_KEY_ID" --profile ec2-user /
-    && aws configure set aws_secret_access_key "$AWS_ACCESS_KEY_SECRET" --profile ec2-user /
-    && aws configure set region "$AWS_REGION" --profile ec2-user && aws configure set output "json" --profile ec2-user
-}
+#add_dns_record() {
+#  local hosted_zone_id="$1"
+#  local record_name="$2"
+#  local record_value="$3"
+#  local record_ttl="${4:-300}"  # Default TTL to 300 if not provided
+#  local record_type="A"
+#
+#}
+#
+#AWS_CLI_Install () {
+#  pip install awscli
+#  AWS_ACCESS_KEY_ID= aa
+#  AWS_ACCESS_KEY_SECRET=aaa
+#  AWS_REGION=aaa
+#  aws configure set aws_access_key_id "$AWS_ACCESS_KEY_ID" --profile ec2-user /
+#    && aws configure set aws_secret_access_key "$AWS_ACCESS_KEY_SECRET" --profile ec2-user /
+#    && aws configure set region "$AWS_REGION" --profile ec2-user && aws configure set output "json" --profile ec2-user
+#}
 
 
 
