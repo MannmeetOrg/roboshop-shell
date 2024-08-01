@@ -131,7 +131,7 @@ Systemd_setup () {
 
 Schema_setup () {
 
-    if [ ${component} == "mysql"]; then
+    if [ $schema_setup == "mysql"]; then
         PRINT Install MySQL Client
             dnf install mysql -y &>>$LOG_FILE
         STAT $?
@@ -143,7 +143,7 @@ Schema_setup () {
         done
     fi
 
-    if [ ${component} == "mongodb"]; then
+    if [ $schema_setup == "mongodb"]; then
         PRINT Copy the configuration file
           cp ${code_dir}/mongodb.repo /etc/yum.repos.d/mongo.repo &>>$LOG_FILE
         STAT $?
