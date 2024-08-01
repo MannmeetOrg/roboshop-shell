@@ -138,7 +138,7 @@ Schema_setup () {
 
       for file in schema app-user master-data; do
         PRINT Load ${file}.sql
-          mysql -h <MYSQL-SERVER-IPADDRESS> -uroot -pRoboShop@1 < /app/db/${file}.sql &>>$LOG_FILE
+          mysql -h mysql.blissfullbytes.online -uroot -pRoboShop@1 < /app/db/${file}.sql &>>$LOG_FILE
         STAT $?
         done
     fi
@@ -155,7 +155,7 @@ Schema_setup () {
         STAT $?
 
         PRINT Load Master Data
-        mongosh --host 35.175.198.42 </app/db/master-data.js &>>$LOG_FILE
+        mongosh --host mongodb.blissfullbytes.online </app/db/master-data.js &>>$LOG_FILE
 
         STAT $?
     fi
