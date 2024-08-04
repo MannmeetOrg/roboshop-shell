@@ -8,7 +8,7 @@ sname=rabbitmq
 
 PRINT Install RabbitMQ
 
-dnf install rabbitmq-server -y &>>$LOG_FILE
+sudo dnf install rabbitmq-server -y &>>$LOG_FILE
 
 STAT $?
 
