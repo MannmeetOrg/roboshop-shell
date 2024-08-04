@@ -4,15 +4,15 @@ sname=rabbitmq
 
 PRINT Install RabbitMQ
 
-dnf install rabbitmq-server -y
+dnf install rabbitmq-server -y &>>$LOG_FILE
 STAT $?
 
 System_setup
 
 PRINT Create one user for the RabbitMQ application and set permission
 
-rabbitmqctl add_user roboshop roboshop123
-rabbitmqctl set_permissions -p / roboshop ".*" ".*" ".*"
+rabbitmqctl add_user roboshop roboshop123 &>>$LOG_FILE
+rabbitmqctl set_permissions -p / roboshop ".*" ".*" ".*"  &>>$LOG_FILE
 
 STAT $?
 
