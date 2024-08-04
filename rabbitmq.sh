@@ -2,6 +2,10 @@ source common.sh
 component=rabbitmq
 sname=rabbitmq
 
+PRINT Copy Repo file
+cp ${code_dir}/rabbitmq.repo /etc/yum.repos.d/rabbitmq.repo &>>$LOG_FILE
+STAT $?
+
 PRINT Install RabbitMQ
 
 dnf install rabbitmq-server -y &>>$LOG_FILE
