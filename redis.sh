@@ -22,7 +22,12 @@ sed -i -e '/^bind/ s/127.0.0.1/0.0.0.0/' -e '/protected-mode/ c protected-mode n
 
 STAT $?
 
-Systemd_setup
+ PRINT Start Service
+    systemctl daemon-reload &>>$LOG_FILE
+
+    systemctl enable ${component} &>>$LOG_FILE
+    systemctl start ${component} &>>$LOG_FILE
+  STAT $?
 
 
 execute_as_root
