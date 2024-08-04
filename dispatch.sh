@@ -9,7 +9,7 @@ app_path=/app
 
 Prereq_App
 
-  PRINT Download the dependencies & build the software.
+  PRINT Download the dependencies and build the software.
 
         cd ${app_path} &>>LOG_FILE
         go mod init ${component} &>>LOG_FILE
