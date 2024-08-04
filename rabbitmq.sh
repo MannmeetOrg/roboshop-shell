@@ -11,17 +11,17 @@ PRINT  Install necessary dependencies
     sudo dnf install -y curl &>>$LOG_FILE
 STAT $?
 
-PRINT Add Erlang repository
-sudo rpm --import https://packages.erlang-solutions.com/rpm/erlang_solutions.asc
-sudo tee /etc/yum.repos.d/rabbitmq_erlang.repo <<EOF
-[erlang-solutions]
-name=CentOS-$releasever - Erlang Solutions
-baseurl=https://packages.erlang-solutions.com/rpm/centos/\$releasever/\$basearch
-gpgcheck=1
-gpgkey=https://packages.erlang-solutions.com/rpm/erlang_solutions.asc
-enabled=1
-EOF
-STAT $?
+#PRINT Add Erlang repository
+#sudo rpm --import https://packages.erlang-solutions.com/rpm/erlang_solutions.asc
+#sudo tee /etc/yum.repos.d/rabbitmq_erlang.repo <<EOF
+#[erlang-solutions]
+#name=CentOS-$releasever - Erlang Solutions
+#baseurl=https://packages.erlang-solutions.com/rpm/centos/\$releasever/\$basearch
+#gpgcheck=1
+#gpgkey=https://packages.erlang-solutions.com/rpm/erlang_solutions.asc
+#enabled=1
+#EOF
+#STAT $?
 
 PRINT Add RabbitMQ repository
 sudo rpm --import https://packagecloud.io/rabbitmq/rabbitmq-server/gpgkey
