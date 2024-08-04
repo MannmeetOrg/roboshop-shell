@@ -14,7 +14,7 @@ execute_as_root() {
       echo "Switched back to ec2-user and changed directory to /home/ec2-user/roboshop-shell/"
       exec bash
     exit
-EOF
+EOF &>>$LOG_FILE
 }
 
 
