@@ -14,7 +14,7 @@ execute_as_root() {
       echo "Switched back to ec2-user and changed directory to /home/ec2-user/roboshop-shell/"
       exec bash
     exit
-EOF &>>$LOG_FILE
+EOF
 }
 
 
@@ -179,8 +179,3 @@ Schema_setup () {
 #    && aws configure set aws_secret_access_key "$AWS_ACCESS_KEY_SECRET" --profile ec2-user /
 #    && aws configure set region "$AWS_REGION" --profile ec2-user && aws configure set output "json" --profile ec2-user
 #}
-
-
-
-
-
