@@ -8,7 +8,10 @@ dnf install rabbitmq-server -y &>>$LOG_FILE
 
 STAT $?
 
-Systemd_setup
+PRINT Starting and enable RABITTMQ Server
+  systemctl enable rabbitmq-server
+  systemctl start rabbitmq-server
+STAT $?
 
 PRINT Create one user for the RabbitMQ application and set permission
 
