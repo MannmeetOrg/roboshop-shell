@@ -17,6 +17,5 @@ rabbitmqctl set_permissions -p / roboshop ".*" ".*" ".*"  &>>$LOG_FILE
 
 STAT $?
 
-
 execute_as_root
 
