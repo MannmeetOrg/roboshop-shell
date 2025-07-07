@@ -127,7 +127,7 @@ This deploys the entire RoboShop stack in sequence.
 ---
 
 
-## 🤝 Contributing 👥 Contributing
+## 🤝 Contributing
     
 Contributions welcome! To help:
     
