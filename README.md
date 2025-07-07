@@ -62,28 +62,30 @@ chmod +x *.sh
 
 ---
 ## 3. Run individual microservice setup:
+
 ```
-sudo ./common.sh
-sudo ./catalog.sh
+  sudo ./common.sh
+  sudo ./catalog.sh
 ```
 # Repeat for cart.sh, user.sh, etc.
 
+---
 # Scripts can be run in any order (common.sh recommended first). They detect and skip already-configured components.
 
 ---
+
 ## 4. Check status:
 Verify each component’s service status:
 ```
-
-systemctl status catalog
+  systemctl status catalog
 ```
 
 # Replace with service name used in script
 
 ---
+
 ## 🛠️ How It Works
 
-```
 * common.sh: Updates OS, installs user creation, firewall config, logging functions.
 * Each microservice script:
 
@@ -102,7 +104,7 @@ systemctl status catalog
     - Validates health endpoint or log output
 
 * Scripts are idempotent, checking existing installations before proceeding.
-```
+
 ---
 
 ## 🧪 Running Full Deployment
