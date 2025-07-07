@@ -76,32 +76,30 @@ Verify each component’s service status:
 ---
 ```
   systemctl status catalog
+  # Replace with service name used in script
 ```
----
-# Replace with service name used in script
-
 ---
 
 ## 🛠️ How It Works
 
-* common.sh: Updates OS, installs user creation, firewall config, logging functions.
-* Each microservice script:
+  * common.sh: Updates OS, installs user creation, firewall config, logging functions.
+    * Each microservice script:
 
-    - Creates system user (roboshop or individual)
+        - Creates system user (roboshop or individual)
     
-    - Installs dependencies (e.g. Node/npm, Maven, Python)
+        - Installs dependencies (e.g. Node/npm, Maven, Python)
     
-    - Downloads service code or archives
+        - Downloads service code or archives
     
-    - Builds/installs service
+        - Builds/installs service
     
-    - Configures systemd service from templates
+        - Configures systemd service from templates
     
-    - Starts and enables the service
+        - Starts and enables the service
     
-    - Validates health endpoint or log output
+        - Validates health endpoint or log output
 
-* Scripts are idempotent, checking existing installations before proceeding.
+    * Scripts are idempotent, checking existing installations before proceeding.
 
 ---
 
@@ -115,25 +113,28 @@ done
 ```
 ---
 This deploys the entire RoboShop stack in sequence.
----
+
 
 ## 📄 Logging & Troubleshooting
 
-    - Execution logs are written to logs/<service>.log
-    
-    - Fails fast: scripts exit on error and log descriptive message.
-    
-    - Check logs and systemd status for when services fail to start.
+- Execution logs are written to logs/<service>.log
+
+- Fails fast: scripts exit on error and log descriptive message.
+
+- Check logs and systemd status for when services fail to start.
 
 ---
+
+
 ## 🤝 Contributing 👥 Contributing
-    Contributions welcome! To help:
     
-        - Fork the repo
-        - Create a feature branch: git checkout -b my-feature
-        - Implement changes or fixes
-        - Test locally and update logs/templates accordingly
-        - Submit a pull request with clear description
+Contributions welcome! To help:
+    
+- Fork the repo
+- Create a feature branch: git checkout -b my-feature
+- Implement changes or fixes
+- Test locally and update logs/templates accordingly
+- Submit a pull request with clear description
 
 ---
 
