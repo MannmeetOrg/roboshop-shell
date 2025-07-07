@@ -76,10 +76,11 @@ chmod +x *.sh
 
 ## 4. Check status:
 Verify each component’s service status:
+---
 ```
   systemctl status catalog
 ```
-
+---
 # Replace with service name used in script
 
 ---
@@ -109,13 +110,13 @@ Verify each component’s service status:
 
 ## 🧪 Running Full Deployment
 To streamline setup:
-
+---
 ``` 
 for svc in common mongodb mysql redis catalog user cart payment shipping frontend; do
 sudo ./${svc}.sh || { echo "Deployment failed on $svc"; exit 1; }
 done
 ```
-
+---
 This deploys the entire RoboShop stack in sequence.
 ---
 
