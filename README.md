@@ -64,10 +64,11 @@ chmod +x *.sh
   sudo ./common.sh
   sudo ./catalog.sh
 ```
-# Repeat for cart.sh, user.sh, etc.
-
 ---
-# Scripts can be run in any order (common.sh recommended first). They detect and skip already-configured components.
+
+Repeat for cart.sh, user.sh, etc.
+
+Scripts can be run in any order (common.sh recommended first). They detect and skip already-configured components.
 
 ---
 
