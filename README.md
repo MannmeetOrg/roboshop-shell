@@ -33,9 +33,6 @@
 ```
 ---
 
-
----
-
 ## ⚙️ Prerequisites
 
 Before running the scripts:
@@ -59,7 +56,7 @@ cd roboshop-shell
 ## 2. Make scripts executable:
 ```
 chmod +x *.sh
-
+```
 ---
 ## 3. Run individual microservice setup:
 
