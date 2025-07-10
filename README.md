@@ -145,6 +145,7 @@ MIT License – see LICENSE.
 ---
 
 📋 Summary
+
 This repo automates full-stack deployment of RoboShop using shell scripts and systemd, ensuring fast, 
 repeatable environment setup with low overhead—ideal for demo deployments, training, or dev stacks.
 
